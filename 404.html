@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Kipiritos — os bichinhos do Brasil que nascem de ovos</title>
+<meta name="description" content="Fauna e folclore brasileiros viraram bichinhos de cuidar e colecionar. Conheça os Kipiritos, da Ilha Brazukka — e seja dos primeiros a pôr os pés nela." />
+<link rel="canonical" href="https://kipiritos.com.br/" />
+<!-- Open Graph / redes -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kipiritos" />
+<meta property="og:title" content="Kipiritos — os bichinhos do Brasil que nascem de ovos" />
+<meta property="og:description" content="Fauna e folclore brasileiros viraram bichinhos de cuidar e colecionar. Em breve no seu celular." />
+<meta property="og:url" content="https://kipiritos.com.br/" />
+<meta property="og:image" content="https://kipiritos.com.br/assets/og_kipiritos.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kipiritos — os bichinhos do Brasil que nascem de ovos" />
+<meta name="twitter:description" content="Fauna e folclore brasileiros viraram bichinhos de cuidar e colecionar. Em breve no seu celular." />
+<meta name="twitter:image" content="https://kipiritos.com.br/assets/og_kipiritos.png" />
+<meta name="theme-color" content="#ff3e8a" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* ===== PROPOSTA 1 — "BLOCO" · sticker maximalista, color-blocking, festa ===== */
+:root{
+  --magenta:#ff3e8a; --verde:#19b35a; --amarelo:#ffd23f; --azul:#13a7d6; --laranja:#ff7a2f;
+  --roxo:#5b3a78; --roxo-glow:#b08fd6; --creme:#fff3e6; --ink:#2a1020;
+  --disp:"Luckiest Guy",sans-serif; --round:"Fredoka",sans-serif; --body:"Nunito",sans-serif;
+  --ink-sh:6px 6px 0 var(--ink); --ink-sh-sm:4px 4px 0 var(--ink); --bd:4px solid var(--ink);
+  --ease:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--magenta);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.disp{font-family:var(--disp);font-weight:400;-webkit-text-stroke:3px var(--ink);text-shadow:var(--ink-sh)}
+section{position:relative}
+[data-rev]{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s var(--ease)}
+[data-rev].in{opacity:1;transform:none}
+[data-rev][data-d="1"]{transition-delay:.1s}[data-rev][data-d="2"]{transition-delay:.2s}[data-rev][data-d="3"]{transition-delay:.3s}
+
+/* topo / nav */
+.top{position:sticky;top:0;z-index:40;background:var(--magenta);border-bottom:var(--bd);padding:10px 0}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.top img{height:46px}
+.top .nav{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-family:var(--round);font-weight:700;font-size:.92rem;color:var(--ink);background:var(--amarelo);
+  border:3px solid var(--ink);border-radius:999px;padding:.34em .9em;box-shadow:var(--ink-sh-sm);text-decoration:none;cursor:pointer;
+  transition:transform .18s var(--ease)}
+.pill:hover{transform:translate(-2px,-2px) rotate(-2deg)}
+.pill--cta{background:var(--verde);color:var(--creme)}
+@media(max-width:680px){.top .nav .pill:not(.pill--cta){display:none}}
+
+/* HERO — palco do logo animado */
+.hero{padding:46px 0 70px;text-align:center}
+.hero__kick{font-family:var(--round);font-weight:700;color:var(--amarelo);letter-spacing:.04em;text-transform:uppercase;-webkit-text-stroke:1px var(--ink);font-size:1rem}
+/* PALCO DA ANIMAÇÃO DO LOGO (ovo choca → bichinho na cena) */
+.stage{position:relative;width:min(560px,92vw);margin:14px auto 8px;aspect-ratio:1/1}
+.stage__confetti{position:absolute;inset:-6%;z-index:0;pointer-events:none}
+.stage__confetti i{position:absolute;display:block;opacity:.85;animation:flo 6s ease-in-out infinite}
+.c1{width:34px;height:34px;background:var(--amarelo);border-radius:50%;left:4%;top:18%}
+.c2{width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:34px solid var(--verde);right:6%;top:10%;transform:rotate(16deg)}
+.c3{width:28px;height:28px;background:var(--azul);border-radius:8px;right:2%;bottom:24%;transform:rotate(-18deg)}
+.c4{width:26px;height:26px;background:var(--laranja);border-radius:50%;left:8%;bottom:14%}
+@keyframes flo{0%,100%{transform:translateY(0) rotate(var(--r,0))}50%{transform:translateY(-16px) rotate(var(--r,0))}}
+.stage__art{position:relative;z-index:2;width:100%;height:100%;display:grid;place-items:center}
+/* o bichinho na cena (vídeo) — onde a animação mascarada do nascimento vai entrar */
+.stage__pet{width:74%;border:var(--bd);border-radius:34px;box-shadow:var(--ink-sh);overflow:hidden;background:var(--azul);aspect-ratio:1/1;transform:rotate(-2deg)}
+.stage__pet video,.stage__pet img{width:100%;height:100%;object-fit:cover}
+.stage__egg{position:absolute;z-index:3;right:2%;bottom:-2%;width:36%;filter:drop-shadow(4px 6px 0 rgba(0,0,0,.25));animation:wob 3s var(--ease) infinite}
+@keyframes wob{0%,72%,100%{transform:rotate(0)}78%{transform:rotate(-7deg)}86%{transform:rotate(5deg)}93%{transform:rotate(-2deg)}}
+.hero__logo{width:min(520px,86vw);margin:8px auto 0}
+.hero__lede{font-weight:800;font-size:clamp(1.06rem,2.6vw,1.3rem);color:var(--creme);max-width:30ch;margin:.7em auto 1.2em}
+.hero__note{margin-top:8px;font-family:var(--round);font-weight:600;color:var(--creme);opacity:.85;font-size:.82rem}
+
+/* form sticker */
+.signup{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:480px;margin:0 auto}
+.signup input{flex:1 1 220px;font-family:var(--body);font-weight:700;font-size:1rem;color:var(--ink);background:var(--creme);
+  border:var(--bd);border-radius:16px;padding:.85em 1.1em;box-shadow:var(--ink-sh-sm);min-width:0}
+.signup input:focus{outline:none;transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.signup button{font-family:var(--disp);-webkit-text-stroke:0;font-size:1.05rem;color:var(--creme);background:var(--verde);
+  border:var(--bd);border-radius:16px;padding:.7em 1.3em;box-shadow:var(--ink-sh-sm);cursor:pointer;transition:transform .18s var(--ease),box-shadow .18s}
+.signup button:hover{transform:translate(-3px,-3px) rotate(-1.5deg);box-shadow:7px 7px 0 var(--ink)}
+
+/* BLOCO de cor reutilizável */
+.bloco{border-top:var(--bd);border-bottom:var(--bd);padding:64px 0}
+.bloco--verde{background:var(--verde)} .bloco--amarelo{background:var(--amarelo)}
+.bloco--azul{background:var(--azul)} .bloco--laranja{background:var(--laranja)}
+.bloco--roxo{background:radial-gradient(120% 80% at 70% 10%,rgba(176,143,214,.32),transparent 60%),var(--roxo)}
+.bloco__head{text-align:center;max-width:680px;margin:0 auto 40px}
+.shout{font-family:var(--disp);font-weight:400;-webkit-text-stroke:2.5px var(--ink);text-shadow:var(--ink-sh);
+  font-size:clamp(2rem,6.4vw,3.3rem);line-height:1;color:var(--creme)}
+.shout em{font-style:normal;color:var(--amarelo)}
+.bloco--amarelo .shout{color:var(--magenta)} .bloco--amarelo .shout em{color:var(--ink)}
+.lead{font-weight:800;font-size:1.1rem;color:var(--creme);margin-top:.5em}
+.bloco--amarelo .lead{color:var(--ink)}
+
+/* cards sticker */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:440px){.cards{grid-template-columns:1fr}}
+.card{background:var(--creme);border:var(--bd);border-radius:24px;box-shadow:var(--ink-sh);padding:16px 16px 20px;text-align:center;
+  transition:transform .22s var(--ease),box-shadow .22s}
+.card:nth-child(odd){transform:rotate(-1.5deg)}.card:nth-child(even){transform:rotate(1.5deg)}
+.card:hover{transform:translateY(-10px) rotate(0) scale(1.03);box-shadow:var(--ink-sh)}
+.card__art{border:var(--bd);border-radius:16px;overflow:hidden;aspect-ratio:1/1;margin-bottom:12px;background:var(--azul)}
+.card__art img,.card__art video{width:100%;height:100%;object-fit:cover}
+.card__no{display:inline-block;font-family:var(--disp);-webkit-text-stroke:0;font-size:.78rem;color:var(--creme);background:var(--magenta);
+  border:3px solid var(--ink);border-radius:999px;padding:.1em .7em;margin-bottom:.3em}
+.card__name{font-family:var(--disp);-webkit-text-stroke:0;font-size:1.5rem;line-height:1;color:var(--ink)}
+.card__tax{font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:#8a7b73;margin:.2em 0 .4em}
+.card__fact{font-weight:700;font-size:.92rem;color:#6b5e57}
+
+/* demo jogável (tira) */
+.demo{display:flex;flex-direction:column;align-items:center;gap:18px}
+.phone{width:min(240px,70vw);padding:12px;background:var(--ink);border-radius:36px;box-shadow:var(--ink-sh)}
+.phone video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:24px;background:var(--verde)}
+.demo-btn{font-family:var(--disp);-webkit-text-stroke:0;font-size:1.4rem;color:var(--ink);background:var(--amarelo);border:var(--bd);
+  border-radius:18px;padding:.5em 1.4em;box-shadow:var(--ink-sh);cursor:pointer;transition:transform .14s var(--ease),box-shadow .14s}
+.demo-btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink);background:var(--magenta);color:var(--creme)}
+
+/* ilha (mapa) */
+.ilha__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:860px){.ilha__grid{grid-template-columns:1fr;gap:24px}}
+.ilha__frame{border:var(--bd);border-radius:26px;overflow:hidden;box-shadow:var(--ink-sh);transform:rotate(1.5deg);background:var(--azul)}
+
+/* folclore (roxo) */
+.folc{text-align:center;color:#f3ecff}
+.folc .shout{color:#f3ecff;text-shadow:6px 6px 0 #1a1024}.folc .shout em{color:var(--roxo-glow)}
+.folc__egg{width:160px;margin:18px auto 0;filter:drop-shadow(0 10px 26px rgba(0,0,0,.5)) drop-shadow(0 0 22px rgba(176,143,214,.6));animation:wob 5s var(--ease) infinite}
+.folc__copy{max-width:46ch;margin:14px auto 0;font-weight:700;color:#e3d4f5}
+.folc__copy b{color:var(--roxo-glow)}
+
+/* footer */
+.foot{background:var(--ink);color:var(--creme);text-align:center;padding:60px 0 44px;border-top:var(--bd)}
+.foot .shout{color:var(--creme)}.foot .shout em{color:var(--amarelo)}
+.foot__social a{font-family:var(--round);font-weight:700;color:var(--ink);background:var(--amarelo);border:3px solid var(--creme);
+  border-radius:999px;padding:.3em .8em;margin:.2em;display:inline-block;text-decoration:none}
+.foot__legal{opacity:.8;font-size:.84rem;margin-top:1em}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <img src="assets/logo_kipiritos_oficial.png" alt="Kipiritos" />
+    <nav class="nav">
+      <a class="pill" href="#bichos">Os bichos</a>
+      <a class="pill" href="#ilha">A Ilha</a>
+      <a class="pill pill--cta" href="#entrar">Entrar na lista</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero__kick" data-rev>Coleção oficial · Ilha Brazukka</p>
+      <!-- PALCO: aqui entra a animação do logo (ovo choca → bichinho na cena) -->
+      <div class="stage" data-rev data-d="1">
+        <div class="stage__confetti"><i class="c1" style="--r:0"></i><i class="c2" style="--r:16deg"></i><i class="c3" style="--r:-18deg"></i><i class="c4" style="--r:0"></i></div>
+        <div class="stage__art">
+          <div class="stage__pet">
+            <video src="assets/capioca_hero.mp4" poster="assets/capioca.png" muted loop autoplay playsinline></video>
+          </div>
+          <img class="stage__egg" src="assets/ovo.png" alt="" />
+        </div>
+      </div>
+      <img class="hero__logo" src="assets/logo_kipiritos_egg.png" alt="Kipiritos" data-rev data-d="1" />
+      <p class="hero__lede" data-rev data-d="2">Fauna e folclore brasileiros viraram bichinhos de cuidar e&nbsp;colecionar.</p>
+      <form class="signup" id="entrar" data-rev data-d="2" novalidate>
+        <input type="email" placeholder="seu melhor e-mail" required />
+        <button type="submit">Quero ver nascer 🥚</button>
+      </form>
+      <p class="hero__note" data-rev data-d="3">▶ no header, o ovo do logo vai <b>chocar e o bichinho nascer</b> (animação mascarada)</p>
+    </div>
+  </section>
+
+  <!-- OS OVOS -->
+  <section class="bloco bloco--amarelo" id="ovos">
+    <div class="wrap">
+      <div class="bloco__head">
+        <h2 class="shout" data-rev>Tudo começa num <em>ovo.</em></h2>
+        <p class="lead" data-rev data-d="1">E você <b>nunca sabe</b> quem vem 👀</p>
+      </div>
+      <div class="cards">
+        <div class="card" data-rev data-d="1"><div class="card__art" style="background:var(--magenta)"><img src="assets/ovo.png" alt=""></div><p class="card__name">Capioca</p><p class="card__tax">capivara</p></div>
+        <div class="card" data-rev data-d="1"><div class="card__art" style="background:var(--azul)"><img src="assets/ovo_arara.png" alt=""></div><p class="card__name">Arará</p><p class="card__tax">arara-azul</p></div>
+        <div class="card" data-rev data-d="2"><div class="card__art" style="background:var(--verde)"><img src="assets/ovo_douro.png" alt=""></div><p class="card__name">Douro</p><p class="card__tax">mico-leão</p></div>
+        <div class="card" data-rev data-d="2"><div class="card__art" style="background:var(--roxo)"><img src="assets/ovo_caipora.png" alt=""></div><p class="card__name">? ? ?</p><p class="card__tax">segredo…</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELES SÃO VIVOS (demo) -->
+  <section class="bloco bloco--verde" id="vivos">
+    <div class="wrap">
+      <div class="bloco__head">
+        <h2 class="shout" data-rev>Eles são <em>vivos.</em></h2>
+        <p class="lead" data-rev data-d="1">Come, toma banho, dorme, treina, dança — e responde ao seu carinho.</p>
+      </div>
+      <div class="demo" data-rev data-d="1">
+        <div class="phone"><video src="assets/capioca_idle.mp4" poster="assets/capioca.png" muted loop autoplay playsinline></video></div>
+        <button class="demo-btn" type="button">🍉 Comer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OS 3 PRIMEIROS -->
+  <section class="bloco bloco--azul" id="bichos">
+    <div class="wrap">
+      <div class="bloco__head"><h2 class="shout" data-rev>Os <em>3 primeiros.</em></h2>
+        <p class="lead" data-rev data-d="1">Comece com três. O resto da Ilha está escondido.</p></div>
+      <div class="cards">
+        <div class="card" data-rev data-d="1"><span class="card__no">Nº 001</span><div class="card__art" style="background:var(--verde)"><img src="assets/capioca.png" alt=""></div><h3 class="card__name">Capioca</h3><p class="card__tax">capivara · Pantanal</p><p class="card__fact">A companhia mais tranquila da Ilha.</p></div>
+        <div class="card" data-rev data-d="2"><span class="card__no">Nº 002</span><div class="card__art" style="background:var(--azul)"><img src="assets/arara.png" alt=""></div><h3 class="card__name">Arará</h3><p class="card__tax">arara-azul · Mata</p><p class="card__fact">Voa sempre em casal.</p></div>
+        <div class="card" data-rev data-d="3"><span class="card__no">Nº 003</span><div class="card__art" style="background:var(--amarelo)"><img src="assets/douro.png" alt=""></div><h3 class="card__name">Douro</h3><p class="card__tax">mico-leão · Mata Atlântica</p><p class="card__fact">O tesouro dourado da floresta.</p></div>
+        <div class="card" data-rev data-d="3"><span class="card__no">Nº ???</span><div class="card__art" style="background:#cfc8bf;display:grid;place-items:center"><span class="disp" style="font-size:4rem;color:#8a8178">?</span></div><h3 class="card__name">? ? ?</h3><p class="card__tax">à espera</p><p class="card__fact">Tem muito mais na Ilha.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A ILHA -->
+  <section class="bloco bloco--laranja" id="ilha">
+    <div class="wrap"><div class="ilha__grid">
+      <div data-rev>
+        <h2 class="shout" style="text-align:left">A ilha <em>Brazukka.</em></h2>
+        <p class="lead" style="margin-top:.6em">Existe uma ilha com a forma do Brasil. Aqui a fauna virou fofura — e os humanos estão chegando&nbsp;agora.</p>
+      </div>
+      <figure class="ilha__frame" data-rev data-d="1"><img src="assets/mapa.png" alt="Mapa da Ilha Brazukka"></figure>
+    </div></div>
+  </section>
+
+  <!-- FOLCLORE (roxo) -->
+  <section class="bloco bloco--roxo folc">
+    <div class="wrap">
+      <h2 class="shout" data-rev>O <em>folclore</em> é o coração da Ilha.</h2>
+      <img class="folc__egg" src="assets/ovo_caipora.png" alt="" data-rev data-d="1" />
+      <p class="folc__copy" data-rev data-d="2">No fundo da mata, um <b>ovo diferente</b> é guardado por alguém que assobia entre as árvores. Os antigos a chamam de <b>Caipora</b> — a primeira das lendas. Quem cuidar o bastante… talvez seja digno de encontrá-la.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER / CTA -->
+  <footer class="foot" id="cta">
+    <div class="wrap">
+      <h2 class="shout" data-rev>A Ilha abre <em>em breve.</em></h2>
+      <p class="lead" style="color:var(--creme);margin:.5em 0 1.2em" data-rev data-d="1">Seja o primeiro a pôr os pés nela.</p>
+      <form class="signup" data-rev data-d="1" novalidate>
+        <input type="email" placeholder="seu melhor e-mail" required />
+        <button type="submit">Entrar na lista 🌿</button>
+      </form>
+      <p class="foot__social" style="margin-top:1.4em" data-rev data-d="2"><a href="#">@kipiritos</a><a href="#">TikTok</a></p>
+      <p class="foot__legal">Feito no Brasil 🇧🇷 · Kipiritos — marca depositada no INPI · em breve no seu celular.</p>
+    </div>
+  </footer>
+</main>
+
+<script>
+/* reveal ao rolar */
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('[data-rev]').forEach(el=>io.observe(el));
+
+/* captura de e-mail — TROCAR pelo endpoint do serviço (Formspree: https://formspree.io/f/SEU_ID · ou API do Brevo).
+   Enquanto vazio, só mostra o "anotado" (não envia). Só capturamos o e-mail; zero outro dado. */
+const FORM_ENDPOINT = ""; // ex.: "https://formspree.io/f/xxxxxxx"
+document.querySelectorAll('form.signup').forEach(f=>f.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const input=f.querySelector('input[type=email]'), btn=f.querySelector('button');
+  const email=(input&&input.value||'').trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ if(input){input.focus();input.style.boxShadow='0 0 0 3px #ff6b5e';setTimeout(()=>input.style.boxShadow='',700);} return; }
+  const done=()=>{ btn.textContent='anotado! 🌿'; btn.style.background='var(--azul)'; if(input) input.disabled=true; };
+  if(!FORM_ENDPOINT){ done(); return; }
+  btn.textContent='enviando…';
+  try{
+    const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({email})});
+    if(r.ok) done(); else { btn.textContent='tenta de novo 😅'; }
+  }catch(_){ btn.textContent='tenta de novo 😅'; }
+}));
+</script>
+</body>
+</html>
+</content>
