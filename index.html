@@ -4,20 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Kipiritos — os bichinhos do Brasil que nascem de ovos</title>
-<meta name="description" content="Fauna e folclore brasileiros viraram bichinhos de cuidar e colecionar. Conheça os Kipiritos, da Ilha Brazukka — e seja dos primeiros a pôr os pés nela." />
+<meta name="description" content="O jogo brasileiro de cuidar e colecionar bichinhos que nascem de ovos — fauna e folclore do Brasil na Ilha Brazukka. Entre na lista: os primeiros recebem chaves de teste beta." />
 <link rel="canonical" href="https://kipiritos.com.br/" />
 <!-- Open Graph / redes -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Kipiritos" />
 <meta property="og:title" content="Kipiritos — os bichinhos do Brasil que nascem de ovos" />
-<meta property="og:description" content="Fauna e folclore brasileiros viraram bichinhos de cuidar e colecionar. Em breve no seu celular." />
+<meta property="og:description" content="O jogo brasileiro de cuidar e colecionar bichinhos da fauna e do folclore do Brasil. Em breve pra celular e iPad — os primeiros da lista recebem chaves de teste beta." />
 <meta property="og:url" content="https://kipiritos.com.br/" />
 <meta property="og:image" content="https://kipiritos.com.br/assets/og_kipiritos.png" />
 <meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
 <meta property="og:locale" content="pt_BR" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Kipiritos — os bichinhos do Brasil que nascem de ovos" />
-<meta name="twitter:description" content="Fauna e folclore brasileiros viraram bichinhos de cuidar e colecionar. Em breve no seu celular." />
+<meta name="twitter:description" content="O jogo brasileiro de cuidar e colecionar bichinhos da fauna e do folclore do Brasil. Em breve pra celular e iPad." />
 <meta name="twitter:image" content="https://kipiritos.com.br/assets/og_kipiritos.png" />
 <meta name="theme-color" content="#ff3e8a" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -25,7 +25,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
 <style>
-/* ===== PROPOSTA 1 — "BLOCO" · sticker maximalista, color-blocking, festa ===== */
+/* ===== PROPOSTA 1 — "BLOCO" · sticker maximalista, color-blocking, festa =====
+   v2 (Fable): jornada do colecionador em capítulos + demo viva + isca beta */
 :root{
   --magenta:#ff3e8a; --verde:#19b35a; --amarelo:#ffd23f; --azul:#13a7d6; --laranja:#ff7a2f;
   --roxo:#5b3a78; --roxo-glow:#b08fd6; --creme:#fff3e6; --ink:#2a1020;
@@ -34,6 +35,7 @@
   --ease:cubic-bezier(.34,1.56,.64,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{font-family:var(--body);color:var(--ink);background:var(--magenta);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{display:block;max-width:100%}
@@ -57,29 +59,37 @@ section{position:relative}
 @media(max-width:680px){.top .nav .pill:not(.pill--cta){display:none}}
 
 /* HERO — palco do logo animado */
-.hero{padding:46px 0 70px;text-align:center}
-.hero__kick{font-family:var(--round);font-weight:700;color:var(--amarelo);letter-spacing:.04em;text-transform:uppercase;-webkit-text-stroke:1px var(--ink);font-size:1rem}
-/* PALCO DA ANIMAÇÃO DO LOGO (ovo choca → bichinho na cena) */
-.stage{position:relative;width:min(560px,92vw);margin:14px auto 8px;aspect-ratio:1/1}
-.stage__confetti{position:absolute;inset:-6%;z-index:0;pointer-events:none}
-.stage__confetti i{position:absolute;display:block;opacity:.85;animation:flo 6s ease-in-out infinite}
-.c1{width:34px;height:34px;background:var(--amarelo);border-radius:50%;left:4%;top:18%}
-.c2{width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:34px solid var(--verde);right:6%;top:10%;transform:rotate(16deg)}
-.c3{width:28px;height:28px;background:var(--azul);border-radius:8px;right:2%;bottom:24%;transform:rotate(-18deg)}
-.c4{width:26px;height:26px;background:var(--laranja);border-radius:50%;left:8%;bottom:14%}
+.hero{padding:40px 0 64px;text-align:center;overflow:hidden}
+.hero .wrap{position:relative}
+.hero__kick{font-family:var(--round);font-weight:700;color:var(--amarelo);letter-spacing:.04em;text-transform:uppercase;-webkit-text-stroke:1px var(--ink);font-size:clamp(.95rem,2.4vw,1.15rem)}
+/* confetes flutuando em volta do logo */
+.hero__confetti{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero__confetti i{position:absolute;display:block;opacity:.85;animation:flo 6s ease-in-out infinite}
+.c1{width:30px;height:30px;background:var(--amarelo);border:3px solid var(--ink);border-radius:50%;left:6%;top:16%}
+.c2{width:0;height:0;border-left:18px solid transparent;border-right:18px solid transparent;border-bottom:30px solid var(--verde);right:8%;top:10%;--r:16deg;animation-delay:.8s}
+.c3{width:26px;height:26px;background:var(--azul);border:3px solid var(--ink);border-radius:8px;right:4%;bottom:30%;--r:-18deg;animation-delay:1.6s}
+.c4{width:24px;height:24px;background:var(--laranja);border:3px solid var(--ink);border-radius:50%;left:9%;bottom:24%;animation-delay:2.4s}
 @keyframes flo{0%,100%{transform:translateY(0) rotate(var(--r,0))}50%{transform:translateY(-16px) rotate(var(--r,0))}}
-.stage__art{position:relative;z-index:2;width:100%;height:100%;display:grid;place-items:center}
-/* o bichinho na cena (vídeo) — onde a animação mascarada do nascimento vai entrar */
-.stage__pet{width:74%;border:var(--bd);border-radius:34px;box-shadow:var(--ink-sh);overflow:hidden;background:var(--azul);aspect-ratio:1/1;transform:rotate(-2deg)}
-.stage__pet video,.stage__pet img{width:100%;height:100%;object-fit:cover}
-.stage__egg{position:absolute;z-index:3;right:2%;bottom:-2%;width:36%;filter:drop-shadow(4px 6px 0 rgba(0,0,0,.25));animation:wob 3s var(--ease) infinite}
-@keyframes wob{0%,72%,100%{transform:rotate(0)}78%{transform:rotate(-7deg)}86%{transform:rotate(5deg)}93%{transform:rotate(-2deg)}}
-.hero__logo{width:min(520px,86vw);margin:8px auto 0}
-.hero__lede{font-weight:800;font-size:clamp(1.06rem,2.6vw,1.3rem);color:var(--creme);max-width:30ch;margin:.7em auto 1.2em}
-.hero__note{margin-top:8px;font-family:var(--round);font-weight:600;color:var(--creme);opacity:.85;font-size:.82rem}
+/* logo animado direto no rosa da página: vídeo composto sobre #ff3e8a exato (tags bt709) e
+   bordas esvanecidas por máscara — sem retângulo/seam de cor perceptível */
+.hero__logo{width:min(780px,128vw);display:block;position:relative;left:50%;transform:translateX(-50%);
+  margin:6px 0 0;z-index:2;
+  -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 74%,transparent 97%);
+  mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 74%,transparent 97%)}
+/* no canvas o alpha é real — dispensa máscara */
+.hero__logo--gl{-webkit-mask-image:none;mask-image:none}
+.hero__lede{font-weight:800;font-size:clamp(1.06rem,2.6vw,1.32rem);color:var(--creme);max-width:34ch;margin:.7em auto .9em;position:relative;z-index:2}
+.hero__lede b{color:var(--amarelo)}
+/* selos do hero (brasil / plataforma / beta) */
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 1.15em;position:relative;z-index:2}
+.badge{font-family:var(--round);font-weight:700;font-size:.88rem;color:var(--ink);background:var(--creme);
+  border:3px solid var(--ink);border-radius:999px;padding:.32em .85em;box-shadow:var(--ink-sh-sm)}
+.badge:nth-child(odd){transform:rotate(-1.5deg)}.badge:nth-child(even){transform:rotate(1.5deg)}
+.hero__note{margin-top:12px;font-family:var(--round);font-weight:600;color:var(--creme);font-size:.9rem;position:relative;z-index:2}
+.hero__note b{color:var(--amarelo)}
 
 /* form sticker */
-.signup{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:480px;margin:0 auto}
+.signup{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:520px;margin:0 auto;position:relative;z-index:2}
 .signup input{flex:1 1 220px;font-family:var(--body);font-weight:700;font-size:1rem;color:var(--ink);background:var(--creme);
   border:var(--bd);border-radius:16px;padding:.85em 1.1em;box-shadow:var(--ink-sh-sm);min-width:0}
 .signup input:focus{outline:none;transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
@@ -88,22 +98,33 @@ section{position:relative}
 .signup button:hover{transform:translate(-3px,-3px) rotate(-1.5deg);box-shadow:7px 7px 0 var(--ink)}
 
 /* BLOCO de cor reutilizável */
-.bloco{border-top:var(--bd);border-bottom:var(--bd);padding:64px 0}
+.bloco{border-top:var(--bd);border-bottom:var(--bd);padding:60px 0}
 .bloco--verde{background:var(--verde)} .bloco--amarelo{background:var(--amarelo)}
 .bloco--azul{background:var(--azul)} .bloco--laranja{background:var(--laranja)}
 .bloco--roxo{background:radial-gradient(120% 80% at 70% 10%,rgba(176,143,214,.32),transparent 60%),var(--roxo)}
-.bloco__head{text-align:center;max-width:680px;margin:0 auto 40px}
+.bloco__head{text-align:center;max-width:720px;margin:0 auto 36px}
+/* kicker de capítulo — o fio da jornada do colecionador */
+.cap{display:inline-block;font-family:var(--round);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--creme);background:var(--ink);border-radius:999px;padding:.3em 1em;margin-bottom:.9em}
+.bloco--amarelo .cap{background:var(--ink);color:var(--amarelo)}
 .shout{font-family:var(--disp);font-weight:400;-webkit-text-stroke:2.5px var(--ink);text-shadow:var(--ink-sh);
-  font-size:clamp(2rem,6.4vw,3.3rem);line-height:1;color:var(--creme)}
+  font-size:clamp(1.9rem,6.4vw,3.3rem);line-height:1.08;color:var(--creme)}
 .shout em{font-style:normal;color:var(--amarelo)}
-.bloco--amarelo .shout{color:var(--magenta)} .bloco--amarelo .shout em{color:var(--ink)}
+.bloco--amarelo .shout{color:var(--magenta)}
+/* palavra-sticker (o "ovo." legível sobre amarelo) */
+.stick{display:inline-block;font-family:inherit;color:var(--magenta);-webkit-text-stroke:2.5px var(--ink);
+  background:var(--creme);border:var(--bd);border-radius:18px;padding:.04em .3em .0em;box-shadow:var(--ink-sh-sm);
+  transform:rotate(-2.5deg);text-shadow:none}
 .lead{font-weight:800;font-size:1.1rem;color:var(--creme);margin-top:.5em}
+.lead b{color:var(--amarelo)}
 .bloco--amarelo .lead{color:var(--ink)}
+.bloco--amarelo .lead b{color:var(--magenta)}
+.hint{font-family:var(--round);font-weight:700;font-size:.95rem;color:var(--ink);opacity:.75;margin-top:.8em}
 
 /* cards sticker */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:440px){.cards{grid-template-columns:1fr}}
+@media(max-width:440px){.cards{grid-template-columns:repeat(2,1fr);gap:12px}}
 .card{background:var(--creme);border:var(--bd);border-radius:24px;box-shadow:var(--ink-sh);padding:16px 16px 20px;text-align:center;
   transition:transform .22s var(--ease),box-shadow .22s}
 .card:nth-child(odd){transform:rotate(-1.5deg)}.card:nth-child(even){transform:rotate(1.5deg)}
@@ -115,26 +136,101 @@ section{position:relative}
 .card__name{font-family:var(--disp);-webkit-text-stroke:0;font-size:1.5rem;line-height:1;color:var(--ink)}
 .card__tax{font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:#8a7b73;margin:.2em 0 .4em}
 .card__fact{font-weight:700;font-size:.92rem;color:#6b5e57}
+@media(max-width:440px){
+  .card{padding:10px 10px 14px;border-radius:18px}
+  .card__name{font-size:1.15rem}.card__tax{font-size:.68rem}.card__fact{font-size:.8rem}
+}
 
-/* demo jogável (tira) */
-.demo{display:flex;flex-direction:column;align-items:center;gap:18px}
-.phone{width:min(240px,70vw);padding:12px;background:var(--ink);border-radius:36px;box-shadow:var(--ink-sh)}
+/* ovos interativos (capítulo 1) — chocar toca o VÍDEO de nascimento real do jogo */
+.eggcard{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.eggcard .card__art{background:var(--magenta)}
+.eggcard .card__art video{display:none}
+.eggcard.hatching .card__art img{display:none}
+.eggcard.hatching .card__art video{display:block}
+.eggcard.shaking .card__art img{animation:shake .9s ease-in-out}
+@keyframes shake{0%,100%{transform:rotate(0)}15%{transform:rotate(-9deg)}30%{transform:rotate(7deg)}45%{transform:rotate(-6deg)}
+  60%{transform:rotate(5deg)}75%{transform:rotate(-3deg)}90%{transform:rotate(2deg)}}
+.eggcard.hatched .card__art img{animation:pop .45s var(--ease)}
+@keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+.eggcard.hatched{cursor:default}
+
+/* demo viva (capítulo 2) */
+.demo{display:flex;flex-direction:column;align-items:center;gap:16px}
+.phone{width:min(250px,72vw);padding:12px;background:var(--ink);border-radius:36px;box-shadow:var(--ink-sh);position:relative}
 .phone video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:24px;background:var(--verde)}
-.demo-btn{font-family:var(--disp);-webkit-text-stroke:0;font-size:1.4rem;color:var(--ink);background:var(--amarelo);border:var(--bd);
-  border-radius:18px;padding:.5em 1.4em;box-shadow:var(--ink-sh);cursor:pointer;transition:transform .14s var(--ease),box-shadow .14s}
-.demo-btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink);background:var(--magenta);color:var(--creme)}
+/* estado do bichinho — fiel ao app: o ANEL de bem-estar é a nota total, função dos status */
+.estado{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap}
+.anel{position:relative;width:96px;height:96px;flex:0 0 auto;text-align:center}
+.anel svg{width:96px;height:96px;transform:rotate(-90deg)}
+.anel circle{fill:none;stroke-width:11}
+.anel .tr{stroke:rgba(42,16,32,.30)}
+.anel .pr{stroke:var(--amarelo);stroke-linecap:round;transition:stroke-dashoffset .8s var(--ease)}
+.anel__num{position:absolute;top:0;left:0;width:96px;height:96px;display:grid;place-items:center;
+  font-family:var(--disp);font-size:1.3rem;color:var(--creme);text-shadow:2px 2px 0 var(--ink)}
+.anel__cap{font-family:var(--round);font-weight:700;font-size:.78rem;color:var(--creme);margin-top:2px}
+.stats{display:flex;flex-direction:column;gap:8px;min-width:180px}
+.stat{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:center;font-size:.95rem}
+.stat__bar{height:13px;background:var(--creme);border:3px solid var(--ink);border-radius:999px;overflow:hidden;box-shadow:2px 2px 0 var(--ink)}
+.stat__fill{height:100%;background:var(--magenta);border-radius:999px;transition:width .6s var(--ease)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.chip{font-family:var(--disp);-webkit-text-stroke:0;font-size:1.15rem;color:var(--ink);background:var(--amarelo);border:var(--bd);
+  border-radius:18px;padding:.45em 1.1em;box-shadow:var(--ink-sh-sm);cursor:pointer;transition:transform .14s var(--ease),box-shadow .14s,opacity .2s}
+.chip:hover{transform:translate(-2px,-2px)}
+.chip:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.chip:disabled{opacity:.45;cursor:default;transform:none}
+.tip{font-family:var(--round);font-weight:700;font-size:.95rem;color:var(--ink);background:var(--creme);border:3px solid var(--ink);
+  border-radius:14px;padding:.5em 1em;box-shadow:var(--ink-sh-sm);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s var(--ease)}
+.tip.show{opacity:1;transform:none}
+
+/* álbum (capítulo 3) — cartas viradas = coleção incompleta */
+.backs{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;max-width:760px;margin:26px auto 0}
+@media(max-width:640px){.backs{grid-template-columns:repeat(3,1fr);gap:10px}}
+.back{aspect-ratio:3/4;border:var(--bd);border-radius:14px;display:grid;place-items:center;
+  background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.14) 0 6px,transparent 7px) 0 0/26px 26px,var(--roxo);
+  box-shadow:var(--ink-sh-sm);font-family:var(--disp);font-size:1.6rem;color:var(--roxo-glow);transition:transform .2s var(--ease)}
+.back:nth-child(odd){transform:rotate(-2deg)}.back:nth-child(even){transform:rotate(2deg)}
+.back:hover{transform:rotate(0) translateY(-6px)}
+.back--gold{background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.22) 0 6px,transparent 7px) 0 0/26px 26px,
+  linear-gradient(135deg,var(--laranja),var(--amarelo));color:var(--creme);
+  box-shadow:var(--ink-sh-sm),0 0 22px rgba(255,210,63,.55)}
+.albumnote{text-align:center;font-family:var(--round);font-weight:700;color:var(--creme);margin-top:18px;font-size:.98rem}
 
 /* ilha (mapa) */
 .ilha__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 @media(max-width:860px){.ilha__grid{grid-template-columns:1fr;gap:24px}}
 .ilha__frame{border:var(--bd);border-radius:26px;overflow:hidden;box-shadow:var(--ink-sh);transform:rotate(1.5deg);background:var(--azul)}
+/* postais da chegada — cenas reais da introdução do jogo */
+.postais{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px}
+@media(max-width:640px){.postais{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}}
+.postal{background:var(--creme);border:var(--bd);border-radius:18px;box-shadow:var(--ink-sh);padding:10px 10px 6px;margin:0}
+.postal:nth-child(odd){transform:rotate(-1.6deg)}.postal:nth-child(even){transform:rotate(1.6deg)}
+.postal video,.postal img{width:100%;aspect-ratio:16/10;object-fit:cover;border:3px solid var(--ink);border-radius:12px;background:var(--azul)}
+.postal figcaption{font-family:var(--round);font-weight:700;font-size:.92rem;color:var(--ink);text-align:center;padding:.4em 0 .3em}
+.postais__note{text-align:center;font-family:var(--round);font-weight:700;color:var(--creme);margin-top:16px;font-size:.9rem;opacity:.92}
 
 /* folclore (roxo) */
 .folc{text-align:center;color:#f3ecff}
 .folc .shout{color:#f3ecff;text-shadow:6px 6px 0 #1a1024}.folc .shout em{color:var(--roxo-glow)}
 .folc__egg{width:160px;margin:18px auto 0;filter:drop-shadow(0 10px 26px rgba(0,0,0,.5)) drop-shadow(0 0 22px rgba(176,143,214,.6));animation:wob 5s var(--ease) infinite}
+@keyframes wob{0%,72%,100%{transform:rotate(0)}78%{transform:rotate(-7deg)}86%{transform:rotate(5deg)}93%{transform:rotate(-2deg)}}
 .folc__copy{max-width:46ch;margin:14px auto 0;font-weight:700;color:#e3d4f5}
 .folc__copy b{color:var(--roxo-glow)}
+/* investigação — busque as pistas da Caipora no cenário (hotspots, como na exploração do jogo) */
+.invest{display:grid;grid-template-columns:320px 1fr;gap:32px;align-items:center;max-width:840px;margin:28px auto 0;text-align:left}
+@media(max-width:720px){.invest{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.cena{position:relative;border:var(--bd);border-radius:22px;overflow:hidden;box-shadow:var(--ink-sh);max-width:320px;transform:rotate(-1.2deg)}
+.cena img{width:100%;display:block}
+.spot{position:absolute;width:38px;height:38px;border-radius:50%;border:3px solid #fff;background:rgba(255,255,255,.22);
+  cursor:pointer;box-shadow:0 0 0 0 rgba(255,255,255,.75);animation:puls 2s ease-out infinite;padding:0}
+@keyframes puls{70%{box-shadow:0 0 0 16px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.spot.found{animation:none;background:var(--verde);border-color:var(--creme);font-size:1.05rem;line-height:1;color:var(--creme)}
+.pistas{display:flex;flex-direction:column;gap:10px;max-width:400px}
+.pista{font-weight:700;font-size:.95rem;color:#cbb8de;background:rgba(0,0,0,.28);border:3px dashed rgba(203,184,222,.5);
+  border-radius:14px;padding:.55em .9em;transition:all .4s}
+.pista.on{color:var(--ink);background:var(--creme);border:3px solid var(--ink);box-shadow:var(--ink-sh-sm)}
+.folc__reveal{opacity:0;max-height:0;overflow:hidden;transition:opacity .8s,max-height .8s var(--ease)}
+.folc__reveal.on{opacity:1;max-height:420px}
+.folc__bumba{max-width:46ch;margin:34px auto 0;font-weight:700;font-style:italic;color:#b9a3cf;font-size:.95rem}
 
 /* footer */
 .foot{background:var(--ink);color:var(--creme);text-align:center;padding:60px 0 44px;border-top:var(--bd)}
@@ -142,6 +238,12 @@ section{position:relative}
 .foot__social a{font-family:var(--round);font-weight:700;color:var(--ink);background:var(--amarelo);border:3px solid var(--creme);
   border-radius:999px;padding:.3em .8em;margin:.2em;display:inline-block;text-decoration:none}
 .foot__legal{opacity:.8;font-size:.84rem;margin-top:1em}
+
+/* acessibilidade: sem animação pra quem pediu */
+@media(prefers-reduced-motion:reduce){
+  .hero__confetti i,.folc__egg{animation:none}
+  [data-rev]{opacity:1;transform:none;transition:none}
+}
 </style>
 </head>
 <body>
@@ -149,9 +251,10 @@ section{position:relative}
   <div class="wrap">
     <img src="assets/logo_kipiritos_oficial.png" alt="Kipiritos" />
     <nav class="nav">
-      <a class="pill" href="#bichos">Os bichos</a>
+      <a class="pill" href="#ovos">Os ovos</a>
+      <a class="pill" href="#album">A coleção</a>
       <a class="pill" href="#ilha">A Ilha</a>
-      <a class="pill pill--cta" href="#entrar">Entrar na lista</a>
+      <a class="pill pill--cta" href="#entrar">Quero a beta</a>
     </nav>
   </div>
 </header>
@@ -160,88 +263,162 @@ section{position:relative}
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <p class="hero__kick" data-rev>Coleção oficial · Ilha Brazukka</p>
-      <!-- PALCO: aqui entra a animação do logo (ovo choca → bichinho na cena) -->
-      <div class="stage" data-rev data-d="1">
-        <div class="stage__confetti"><i class="c1" style="--r:0"></i><i class="c2" style="--r:16deg"></i><i class="c3" style="--r:-18deg"></i><i class="c4" style="--r:0"></i></div>
-        <div class="stage__art">
-          <div class="stage__pet">
-            <video src="assets/capioca_hero.mp4" poster="assets/capioca.png" muted loop autoplay playsinline></video>
-          </div>
-          <img class="stage__egg" src="assets/ovo.png" alt="" />
-        </div>
+      <div class="hero__confetti" aria-hidden="true"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></div>
+      <p class="hero__kick" data-rev>O jogo brasileiro de cuidar e colecionar</p>
+      <!-- LOGO ANIMADO: o ovo no "O" choca e a Capioca nasce.
+           Caminho principal = canvas WebGL compondo o vídeo empilhado (cor+matte) com ALPHA REAL
+           sobre a página (zero seam de cor). Fallback = mp4 sobre magenta com máscara nas bordas. -->
+      <canvas class="hero__logo hero__logo--gl" id="logoGL" width="1440" height="640" hidden></canvas>
+      <video class="hero__logo" id="logoVid" poster="assets/logo_anim_poster.png" muted autoplay playsinline>
+        <source src="assets/logo_anim.mp4" type="video/mp4" />
+        <img src="assets/logo_kipiritos_egg.png" alt="Kipiritos" />
+      </video>
+      <p class="hero__lede" data-rev data-d="2">Bichinhos da <b>fauna e do folclore do Brasil</b> nascem de ovos na <b>Ilha Brazukka</b> — e precisam de você.</p>
+      <div class="badges" data-rev data-d="2">
+        <span class="badge">🇧🇷 Feito no Brasil</span>
+        <span class="badge">📱 Celular e iPad em breve</span>
+        <span class="badge">🥚 Beta fechado</span>
       </div>
-      <img class="hero__logo" src="assets/logo_kipiritos_egg.png" alt="Kipiritos" data-rev data-d="1" />
-      <p class="hero__lede" data-rev data-d="2">Fauna e folclore brasileiros viraram bichinhos de cuidar e&nbsp;colecionar.</p>
       <form class="signup" id="entrar" data-rev data-d="2" novalidate>
         <input type="email" placeholder="seu melhor e-mail" required />
-        <button type="submit">Quero ver nascer 🥚</button>
+        <button type="submit">Quero minha chave beta 🥚</button>
       </form>
-      <p class="hero__note" data-rev data-d="3">▶ no header, o ovo do logo vai <b>chocar e o bichinho nascer</b> (animação mascarada)</p>
+      <p class="hero__note" data-rev data-d="3">Os primeiros da lista recebem <b>chaves de teste beta</b>.</p>
     </div>
   </section>
 
-  <!-- OS OVOS -->
+  <!-- CAPÍTULO 1 — A ESCOLHA (ovos interativos) -->
   <section class="bloco bloco--amarelo" id="ovos">
     <div class="wrap">
       <div class="bloco__head">
-        <h2 class="shout" data-rev>Tudo começa num <em>ovo.</em></h2>
-        <p class="lead" data-rev data-d="1">E você <b>nunca sabe</b> quem vem 👀</p>
+        <p class="cap" data-rev>Capítulo 1 · A escolha</p>
+        <h2 class="shout" data-rev>Tudo começa num <span class="stick">ovo.</span></h2>
+        <p class="lead" data-rev data-d="1">Sua jornada de colecionador começa escolhendo <b>um entre três ovos</b> — sem saber quem vem. E a Ilha guarda <b>tantos outros</b>… alguns <b>lendários</b>.</p>
+        <p class="hint" data-rev data-d="2">👆 Toque num ovo pra chocar</p>
       </div>
       <div class="cards">
-        <div class="card" data-rev data-d="1"><div class="card__art" style="background:var(--magenta)"><img src="assets/ovo.png" alt=""></div><p class="card__name">Capioca</p><p class="card__tax">capivara</p></div>
-        <div class="card" data-rev data-d="1"><div class="card__art" style="background:var(--azul)"><img src="assets/ovo_arara.png" alt=""></div><p class="card__name">Arará</p><p class="card__tax">arara-azul</p></div>
-        <div class="card" data-rev data-d="2"><div class="card__art" style="background:var(--verde)"><img src="assets/ovo_douro.png" alt=""></div><p class="card__name">Douro</p><p class="card__tax">mico-leão</p></div>
-        <div class="card" data-rev data-d="2"><div class="card__art" style="background:var(--roxo)"><img src="assets/ovo_caipora.png" alt=""></div><p class="card__name">? ? ?</p><p class="card__tax">segredo…</p></div>
+        <div class="card eggcard" data-rev data-d="1" data-hatch="assets/hatch_capioca.mp4" data-pet="assets/capioca.png" data-name="Capioca" data-tax="capivara · Pantanal" role="button" tabindex="0" aria-label="Ovo misterioso 1 — toque para chocar">
+          <div class="card__art" style="background:var(--magenta)"><img src="assets/ovo.png" alt=""><video muted playsinline preload="none"></video></div>
+          <p class="card__name">? ? ?</p><p class="card__tax eggcard__hint">toque pra chocar 🥚</p>
+        </div>
+        <div class="card eggcard" data-rev data-d="1" data-hatch="assets/hatch_arara.mp4" data-pet="assets/arara.png" data-name="Arará" data-tax="arara-azul · Mata" role="button" tabindex="0" aria-label="Ovo misterioso 2 — toque para chocar">
+          <div class="card__art" style="background:var(--azul)"><img src="assets/ovo_arara.png" alt=""><video muted playsinline preload="none"></video></div>
+          <p class="card__name">? ? ?</p><p class="card__tax eggcard__hint">toque pra chocar 🥚</p>
+        </div>
+        <div class="card eggcard" data-rev data-d="2" data-hatch="assets/hatch_douro.mp4" data-pet="assets/douro.png" data-name="Douro" data-tax="mico-leão · Mata Atlântica" role="button" tabindex="0" aria-label="Ovo misterioso 3 — toque para chocar">
+          <div class="card__art" style="background:var(--verde)"><img src="assets/ovo_douro.png" alt=""><video muted playsinline preload="none"></video></div>
+          <p class="card__name">? ? ?</p><p class="card__tax eggcard__hint">toque pra chocar 🥚</p>
+        </div>
+        <div class="card eggcard" data-rev data-d="2" role="button" tabindex="0" aria-label="Ovo lendário — ainda não choca">
+          <div class="card__art" style="background:var(--roxo)"><img src="assets/ovo_caipora.png" alt=""></div>
+          <p class="card__name">? ? ?</p><p class="card__tax eggcard__hint">segredo…</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ELES SÃO VIVOS (demo) -->
+  <!-- CAPÍTULO 2 — O CUIDADO (demo viva) -->
   <section class="bloco bloco--verde" id="vivos">
     <div class="wrap">
       <div class="bloco__head">
+        <p class="cap" data-rev>Capítulo 2 · O cuidado</p>
         <h2 class="shout" data-rev>Eles são <em>vivos.</em></h2>
-        <p class="lead" data-rev data-d="1">Come, toma banho, dorme, treina, dança — e responde ao seu carinho.</p>
+        <p class="lead" data-rev data-d="1">Come, toma banho, treina, dança — e o <b>anel de bem-estar</b> responde a cada cuidado. Experimenta:</p>
       </div>
       <div class="demo" data-rev data-d="1">
-        <div class="phone"><video src="assets/capioca_idle.mp4" poster="assets/capioca.png" muted loop autoplay playsinline></video></div>
-        <button class="demo-btn" type="button">🍉 Comer</button>
+        <div class="phone">
+          <video id="demoVid" src="assets/demo_idle.mp4" poster="assets/capioca.png" muted loop autoplay playsinline preload="auto"></video>
+        </div>
+        <!-- fiel ao jogo: o anel (nota total) é função dos status -->
+        <div class="estado" aria-hidden="true">
+          <div class="anel">
+            <svg viewBox="0 0 96 96"><circle class="tr" cx="48" cy="48" r="36"/><circle class="pr" id="anelPr" cx="48" cy="48" r="36"/></svg>
+            <div class="anel__num" id="anelNum">50</div>
+            <div class="anel__cap">bem-estar</div>
+          </div>
+          <div class="stats">
+            <div class="stat"><span>🍉</span><div class="stat__bar"><div class="stat__fill" data-st="comida" style="width:55%"></div></div></div>
+            <div class="stat"><span>🛁</span><div class="stat__bar"><div class="stat__fill" data-st="higiene" style="width:45%"></div></div></div>
+            <div class="stat"><span>🏋️</span><div class="stat__bar"><div class="stat__fill" data-st="energia" style="width:50%"></div></div></div>
+          </div>
+        </div>
+        <div class="chips">
+          <button class="chip" type="button" data-clip="assets/demo_comer.mp4" data-st="comida">🍉 Comida</button>
+          <button class="chip" type="button" data-clip="assets/demo_banho.mp4" data-st="higiene">🛁 Banho</button>
+          <button class="chip" type="button" data-clip="assets/demo_treinar.mp4" data-st="energia">🏋️ Treinar</button>
+        </div>
+        <p class="tip" id="demoTip">No jogo, ele lembra de quem cuida 💚</p>
       </div>
     </div>
   </section>
 
-  <!-- OS 3 PRIMEIROS -->
-  <section class="bloco bloco--azul" id="bichos">
+  <!-- CAPÍTULO 3 — A COLEÇÃO (álbum incompleto) -->
+  <section class="bloco bloco--azul" id="album">
     <div class="wrap">
-      <div class="bloco__head"><h2 class="shout" data-rev>Os <em>3 primeiros.</em></h2>
-        <p class="lead" data-rev data-d="1">Comece com três. O resto da Ilha está escondido.</p></div>
-      <div class="cards">
-        <div class="card" data-rev data-d="1"><span class="card__no">Nº 001</span><div class="card__art" style="background:var(--verde)"><img src="assets/capioca.png" alt=""></div><h3 class="card__name">Capioca</h3><p class="card__tax">capivara · Pantanal</p><p class="card__fact">A companhia mais tranquila da Ilha.</p></div>
-        <div class="card" data-rev data-d="2"><span class="card__no">Nº 002</span><div class="card__art" style="background:var(--azul)"><img src="assets/arara.png" alt=""></div><h3 class="card__name">Arará</h3><p class="card__tax">arara-azul · Mata</p><p class="card__fact">Voa sempre em casal.</p></div>
-        <div class="card" data-rev data-d="3"><span class="card__no">Nº 003</span><div class="card__art" style="background:var(--amarelo)"><img src="assets/douro.png" alt=""></div><h3 class="card__name">Douro</h3><p class="card__tax">mico-leão · Mata Atlântica</p><p class="card__fact">O tesouro dourado da floresta.</p></div>
-        <div class="card" data-rev data-d="3"><span class="card__no">Nº ???</span><div class="card__art" style="background:#cfc8bf;display:grid;place-items:center"><span class="disp" style="font-size:4rem;color:#8a8178">?</span></div><h3 class="card__name">? ? ?</h3><p class="card__tax">à espera</p><p class="card__fact">Tem muito mais na Ilha.</p></div>
+      <div class="bloco__head">
+        <p class="cap" data-rev>Capítulo 3 · A coleção</p>
+        <h2 class="shout" data-rev>Monte seu <em>álbum.</em></h2>
+        <p class="lead" data-rev data-d="1">Comece com três. A Ilha Brazukka esconde <b>mais de 10 espécies</b> — e algumas <b>lendárias ✨</b></p>
       </div>
+      <div class="cards" style="grid-template-columns:repeat(3,1fr);max-width:880px;margin:0 auto">
+        <div class="card" data-rev data-d="1"><span class="card__no">Nº 001</span><div class="card__art" style="background:var(--verde)"><img src="assets/capioca.png" alt="Capioca"></div><h3 class="card__name">Capioca</h3><p class="card__tax">capivara · Pantanal</p><p class="card__fact">A companhia mais tranquila da Ilha.</p></div>
+        <div class="card" data-rev data-d="2"><span class="card__no">Nº 002</span><div class="card__art" style="background:var(--azul)"><img src="assets/arara.png" alt="Arará"></div><h3 class="card__name">Arará</h3><p class="card__tax">arara-azul · Mata</p><p class="card__fact">Voa sempre em casal.</p></div>
+        <div class="card" data-rev data-d="3"><span class="card__no">Nº 003</span><div class="card__art" style="background:var(--amarelo)"><img src="assets/douro.png" alt="Douro"></div><h3 class="card__name">Douro</h3><p class="card__tax">mico-leão · Mata Atlântica</p><p class="card__fact">O tesouro dourado da floresta.</p></div>
+      </div>
+      <div class="backs" data-rev data-d="2">
+        <div class="back">?</div><div class="back">?</div><div class="back">?</div>
+        <div class="back back--gold">✨</div><div class="back">?</div><div class="back">?</div>
+      </div>
+      <p class="albumnote" data-rev data-d="3">…e o álbum não termina aí.</p>
     </div>
   </section>
 
-  <!-- A ILHA -->
+  <!-- CAPÍTULO 4 — A ILHA -->
   <section class="bloco bloco--laranja" id="ilha">
     <div class="wrap"><div class="ilha__grid">
       <div data-rev>
+        <p class="cap">Capítulo 4 · A Ilha</p>
         <h2 class="shout" style="text-align:left">A ilha <em>Brazukka.</em></h2>
-        <p class="lead" style="margin-top:.6em">Existe uma ilha com a forma do Brasil. Aqui a fauna virou fofura — e os humanos estão chegando&nbsp;agora.</p>
+        <p class="lead" style="margin-top:.6em">Existe uma ilha com a forma do Brasil. Cada canto esconde ovos diferentes — e os humanos estão chegando&nbsp;agora.</p>
+        <p class="lead" style="margin-top:.5em;font-size:.98rem">Mas nem tudo que vive nela é&nbsp;bicho…</p>
       </div>
       <figure class="ilha__frame" data-rev data-d="1"><img src="assets/mapa.png" alt="Mapa da Ilha Brazukka"></figure>
-    </div></div>
+    </div>
+    <!-- postais da chegada — cenas reais da introdução do jogo -->
+    <div class="postais" data-rev data-d="2">
+      <figure class="postal"><video src="assets/intro_barco.mp4" muted loop autoplay playsinline preload="metadata"></video><figcaption>A travessia 🛥️</figcaption></figure>
+      <figure class="postal"><video src="assets/intro_onibus.mp4" muted loop autoplay playsinline preload="metadata"></video><figcaption>Subindo a serra 🚌</figcaption></figure>
+      <figure class="postal"><img src="assets/intro_vila.jpg" alt="A vilinha da Ilha Brazukka"><figcaption>A vilinha 🏡</figcaption></figure>
+    </div>
+    <p class="postais__note" data-rev data-d="3">— cenas de dentro do jogo: a sua chegada na Ilha —</p>
+    </div>
   </section>
 
-  <!-- FOLCLORE (roxo) -->
+  <!-- CAPÍTULO 5 — AS LENDAS (roxo) -->
   <section class="bloco bloco--roxo folc">
     <div class="wrap">
+      <p class="cap" data-rev>Capítulo 5 · As lendas</p>
       <h2 class="shout" data-rev>O <em>folclore</em> é o coração da Ilha.</h2>
-      <img class="folc__egg" src="assets/ovo_caipora.png" alt="" data-rev data-d="1" />
-      <p class="folc__copy" data-rev data-d="2">No fundo da mata, um <b>ovo diferente</b> é guardado por alguém que assobia entre as árvores. Os antigos a chamam de <b>Caipora</b> — a primeira das lendas. Quem cuidar o bastante… talvez seja digno de encontrá-la.</p>
+      <p class="folc__copy" data-rev data-d="1">No fundo da mata vive alguém que <b>assobia entre as árvores</b> e protege os bichos. Os antigos a chamam de <b>Caipora</b> — a primeira das lendas. <b>Busque as pistas:</b></p>
+      <!-- investigação: hotspots no cenário, como na exploração do jogo -->
+      <div class="invest" data-rev data-d="2">
+        <div class="cena">
+          <img src="assets/pista_mata.jpg" alt="A mata vista de cima">
+          <button class="spot" type="button" style="left:18%;top:16%" data-pista="0" aria-label="Investigar a mata fechada"></button>
+          <button class="spot" type="button" style="left:64%;top:42%" data-pista="1" aria-label="Investigar a beira do rio"></button>
+          <button class="spot" type="button" style="left:40%;top:64%" data-pista="2" aria-label="Investigar a clareira"></button>
+        </div>
+        <div class="pistas">
+          <p class="pista" data-pista="0">🌀 ？ ？ ？</p>
+          <p class="pista" data-pista="1">🐾 ？ ？ ？</p>
+          <p class="pista" data-pista="2">🍯 ？ ？ ？</p>
+          <div class="folc__reveal" id="folcReveal">
+            <img class="folc__egg" src="assets/ovo_caipora.png" alt="Um ovo diferente, coberto de folhas" style="width:130px" />
+            <p class="folc__copy" style="margin-top:8px">Ela está perto. Dizem que só quem <b>cuida muito bem</b> é digno de encontrá-la…</p>
+          </div>
+        </div>
+      </div>
+      <p class="folc__bumba" data-rev data-d="3">…e ela não é a única lenda. Nas noites de festa, um <b>tambor</b> ecoa do outro lado da Ilha 🥁</p>
     </div>
   </section>
 
@@ -249,39 +426,150 @@ section{position:relative}
   <footer class="foot" id="cta">
     <div class="wrap">
       <h2 class="shout" data-rev>A Ilha abre <em>em breve.</em></h2>
-      <p class="lead" style="color:var(--creme);margin:.5em 0 1.2em" data-rev data-d="1">Seja o primeiro a pôr os pés nela.</p>
+      <p class="lead" style="color:var(--creme);margin:.5em 0 1.2em" data-rev data-d="1">Entre na fila da beta — quem chega primeiro, pisa&nbsp;primeiro.</p>
       <form class="signup" data-rev data-d="1" novalidate>
         <input type="email" placeholder="seu melhor e-mail" required />
-        <button type="submit">Entrar na lista 🌿</button>
+        <button type="submit">Garantir minha chave 🥚</button>
       </form>
-      <p class="foot__social" style="margin-top:1.4em" data-rev data-d="2"><a href="#">@kipiritos</a><a href="#">TikTok</a></p>
-      <p class="foot__legal">Feito no Brasil 🇧🇷 · Kipiritos — marca depositada no INPI · em breve no seu celular.</p>
+      <p class="foot__social" style="margin-top:1.4em" data-rev data-d="2"><a href="https://instagram.com/kipiritos" rel="noopener">@kipiritos</a><a href="https://www.tiktok.com/@kipiritos" rel="noopener">TikTok</a></p>
+      <p class="foot__legal">Feito no Brasil 🇧🇷 · Kipiritos — marca depositada no INPI · em breve pra celular e iPad.</p>
     </div>
   </footer>
 </main>
 
 <script>
+/* LOGO com alpha real: WebGL compõe o vídeo empilhado (metade de cima = cor, metade de baixo = matte)
+   direto sobre a página. Se WebGL/autoplay falhar, o <video> fallback (magenta + máscara) permanece. */
+(function(){
+  const cv=document.getElementById('logoGL'), fb=document.getElementById('logoVid');
+  const gl=cv.getContext('webgl',{premultipliedAlpha:false,alpha:true});
+  if(!gl) return;
+  const mk=(t,s)=>{const h=gl.createShader(t);gl.shaderSource(h,s);gl.compileShader(h);return h};
+  const pr=gl.createProgram();
+  gl.attachShader(pr,mk(gl.VERTEX_SHADER,'attribute vec2 p;varying vec2 t;void main(){t=vec2((p.x+1.)/2.,(1.-p.y)/2.);gl_Position=vec4(p,0,1);}'));
+  gl.attachShader(pr,mk(gl.FRAGMENT_SHADER,'precision mediump float;varying vec2 t;uniform sampler2D v;void main(){vec3 c=texture2D(v,vec2(t.x,t.y*.5)).rgb;float a=texture2D(v,vec2(t.x,.5+t.y*.5)).r;gl_FragColor=vec4(c,a);}'));
+  gl.linkProgram(pr);gl.useProgram(pr);
+  const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  const lp=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(lp);gl.vertexAttribPointer(lp,2,gl.FLOAT,false,0,0);
+  const tx=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tx);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.viewport(0,0,1440,640);
+  const sv=document.createElement('video');
+  sv.muted=true;sv.playsInline=true;sv.setAttribute('playsinline','');sv.preload='auto';
+  sv.src='assets/logo_anim_stack.mp4';
+  let on=false;
+  const draw=()=>{
+    if(sv.readyState>=2){
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,sv);
+      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+      if(!on){on=true;cv.hidden=false;fb.hidden=true;fb.removeAttribute('src');const s=fb.querySelector('source');if(s)s.remove();fb.load()}
+    }
+    if(!sv.ended)requestAnimationFrame(draw);
+  };
+  sv.play().then(()=>requestAnimationFrame(draw)).catch(()=>{});
+})();
+
 /* reveal ao rolar */
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
 document.querySelectorAll('[data-rev]').forEach(el=>io.observe(el));
 
-/* captura de e-mail — TROCAR pelo endpoint do serviço (Formspree: https://formspree.io/f/SEU_ID · ou API do Brevo).
-   Enquanto vazio, só mostra o "anotado" (não envia). Só capturamos o e-mail; zero outro dado. */
-const FORM_ENDPOINT = ""; // ex.: "https://formspree.io/f/xxxxxxx"
+/* CAPÍTULO 1 — chocar os ovos: toca o VÍDEO de nascimento real do jogo (o 4º, lendário, não abre) */
+document.querySelectorAll('.eggcard').forEach(card=>{
+  const revela=()=>{
+    card.querySelector('.card__name').textContent=card.dataset.name;
+    card.querySelector('.eggcard__hint').textContent=card.dataset.tax;
+    card.classList.add('hatched');
+  };
+  const hatch=()=>{
+    if(card.classList.contains('hatched')||card.classList.contains('shaking')||card.classList.contains('hatching'))return;
+    card.classList.add('shaking');
+    setTimeout(()=>{
+      card.classList.remove('shaking');
+      if(card.dataset.hatch){
+        const v=card.querySelector('.card__art video');
+        v.src=card.dataset.hatch;
+        card.classList.add('hatching');
+        v.onended=revela;
+        // sem vídeo (erro de rede etc.) → cai pro retrato estático
+        v.onerror=()=>{card.classList.remove('hatching');card.querySelector('.card__art img').src=card.dataset.pet;revela()};
+        v.play().catch(()=>{v.onerror()});
+      }else{
+        card.querySelector('.eggcard__hint').textContent='…esse ninguém chocou ainda 🌙';
+      }
+    },900);
+  };
+  card.addEventListener('click',hatch);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();hatch()}});
+});
+
+/* CAPÍTULO 2 — demo viva, fiel ao app: cada cuidado enche um STATUS; o anel de bem-estar é a nota total */
+(function(){
+  const vid=document.getElementById('demoVid'), chips=[...document.querySelectorAll('.chip')];
+  const num=document.getElementById('anelNum'), pr=document.getElementById('anelPr'), tip=document.getElementById('demoTip');
+  const IDLE='assets/demo_idle.mp4', C=2*Math.PI*36;
+  const st={comida:55,higiene:45,energia:50};
+  let first=true;
+  pr.style.strokeDasharray=C;
+  const render=()=>{
+    for(const k in st) document.querySelector('.stat__fill[data-st='+k+']').style.width=st[k]+'%';
+    const bem=Math.round((st.comida+st.higiene+st.energia)/3);
+    num.textContent=bem; pr.style.strokeDashoffset=C*(1-bem/100);
+  };
+  render();
+  const toIdle=()=>{vid.loop=true;vid.onended=null;vid.src=IDLE;vid.play().catch(()=>{});chips.forEach(c=>c.disabled=false)};
+  chips.forEach(chip=>chip.addEventListener('click',()=>{
+    if(chip.disabled)return;
+    chips.forEach(c=>c.disabled=true);
+    vid.loop=false;vid.src=chip.dataset.clip;
+    vid.play().catch(()=>{});
+    vid.onended=()=>{
+      st[chip.dataset.st]=Math.min(100,st[chip.dataset.st]+25); render();
+      if(first){tip.classList.add('show');first=false;setTimeout(()=>tip.classList.remove('show'),4200)}
+      toIdle();
+    };
+  }));
+})();
+
+/* CAPÍTULO 5 — investigação: achar as 3 pistas revela o ovo da Caipora */
+(function(){
+  const PISTAS=[
+    '🌀 Um assobio agudo, vindo de lugar nenhum…',
+    '🐾 Pegadas de caititu — e de alguém montada nele.',
+    '🍯 Um favo de mel intocado. Presente… pra quem?'
+  ];
+  let achadas=0;
+  document.querySelectorAll('.spot').forEach(s=>s.addEventListener('click',()=>{
+    if(s.classList.contains('found'))return;
+    s.classList.add('found'); s.textContent='✓';
+    const p=document.querySelector('.pista[data-pista="'+s.dataset.pista+'"]');
+    p.textContent=PISTAS[+s.dataset.pista]; p.classList.add('on');
+    if(++achadas===3) document.getElementById('folcReveal').classList.add('on');
+  }));
+})();
+
+/* vídeos pausam fora da tela (bateria) */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else if(!v.paused){v.pause()}}),{threshold:.3});
+document.querySelectorAll('video[loop]').forEach(v=>vio.observe(v));
+
+/* captura de e-mail — Brevo (action sibforms, lista "campo email"). fetch no-cors: a resposta é
+   opaca, então assumimos sucesso (o contato chega ao Brevo). Honeypot email_address_check vai vazio.
+   Só capturamos o e-mail; zero outro dado. */
+const FORM_ENDPOINT = "https://96dbabe4.sibforms.com/serve/MUIFAN2Faf39eKMlMvAXdQIQAhzJBZe3K4GTYd9feifYeXYh-6GPQVUkoKIk1Zlj55HvyTYaVoOvnQiLeLUVPZJHhqVX_G-moO54cCybm7RICY5OVZWFnuDH2jT_P2qLmzaVSDZNZQBCrOKjMTUPEDtljX2SQmqvbFK5kfC8kf92k6NzSPwVW914G0NFhCvFJK3uzr6c13lNjpVzKw==";
 document.querySelectorAll('form.signup').forEach(f=>f.addEventListener('submit',async e=>{
   e.preventDefault();
   const input=f.querySelector('input[type=email]'), btn=f.querySelector('button');
   const email=(input&&input.value||'').trim();
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ if(input){input.focus();input.style.boxShadow='0 0 0 3px #ff6b5e';setTimeout(()=>input.style.boxShadow='',700);} return; }
-  const done=()=>{ btn.textContent='anotado! 🌿'; btn.style.background='var(--azul)'; if(input) input.disabled=true; };
-  if(!FORM_ENDPOINT){ done(); return; }
+  const done=()=>{ btn.textContent='você tá na fila! chave beta a caminho 🥚'; btn.style.background='var(--azul)'; if(input) input.disabled=true; };
   btn.textContent='enviando…';
-  try{
-    const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({email})});
-    if(r.ok) done(); else { btn.textContent='tenta de novo 😅'; }
-  }catch(_){ btn.textContent='tenta de novo 😅'; }
+  const fd=new FormData(); fd.append('EMAIL',email); fd.append('email_address_check',''); fd.append('locale','pt');
+  try{ await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'}); }catch(_){}
+  done(); // no-cors = resposta opaca; o e-mail já foi enviado ao Brevo
 }));
 </script>
 </body>
 </html>
-</content>
